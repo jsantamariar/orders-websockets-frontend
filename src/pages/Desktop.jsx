@@ -8,7 +8,7 @@ import { useSocket } from "../hooks/useSocket";
 const { Title, Text } = Typography;
 
 const Desktop = () => {
-  const { socket } = useSocket("http://localhost:8080");
+  const { socket } = useSocket(process.env.URL);
   const [user] = useState(getUserStorage());
   const [ticket, setTicket] = useState(null);
   const navigation = useNavigate();

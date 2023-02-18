@@ -6,7 +6,7 @@ import { useSocket } from "../hooks/useSocket";
 const { Title, Text } = Typography;
 
 const CreateTicket = () => {
-  const { socket } = useSocket("http://localhost:8080");
+  const { socket } = useSocket(process.env.URL);
 
   const [ticket, setTicket] = useState(null);
 
