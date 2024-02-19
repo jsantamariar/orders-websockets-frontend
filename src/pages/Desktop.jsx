@@ -8,24 +8,23 @@ import { useSocket } from "../hooks/useSocket";
 const { Title, Text } = Typography;
 
 const Desktop = () => {
-  const { socket } = useSocket(process.env.URL);
+  const navigation = useNavigate();
+  const { socket } = useSocket("http://localhost:8080");
   const [user] = useState(getUserStorage());
   const [ticket, setTicket] = useState(null);
-  const navigation = useNavigate();
+
+  const nextTicket = () => {
+    socket.emit("next-ticket-to-work", user, (ticket) => {
+      setTicket(ticket);
+    });
+  };
 
   const exit = () => {
     localStorage.clear();
     navigation("/login");
   };
 
-  const nextTicket = () => {
-    socket.emit("next-ticket-to-work", user, ticket => {
-      setTicket(ticket);
-    });
-  };
-
   if (!user.agent || !user.desktop) {
-    console.log("enter");
     return navigation("/login");
   }
 
@@ -45,9 +44,7 @@ const Desktop = () => {
           </Button>
         </Col>
       </Row>
-
       <Divider />
-
       <Row>
         <Col>
           <Text>You are working on order number: </Text>

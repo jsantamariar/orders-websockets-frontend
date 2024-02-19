@@ -1,7 +1,8 @@
-export const getLastsTickets = async () => {
-  const response = await fetch(`${process.env.URL}/lasttickets`);
-  const data = await response.json();
-  console.log(data);
+const getLastTickets = async () => {
+  const resp = await fetch("http://localhost:8080/lasts");
+  const data = await resp.json();
 
   return data.lastTickets;
 };
+
+export default getLastTickets;

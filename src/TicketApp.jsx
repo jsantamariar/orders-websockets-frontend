@@ -1,5 +1,5 @@
 import React from "react";
-import UiProvider from "./context/UiContext";
+import { UiProvider } from "./context/UiContext";
 import { SocketProvider } from "./hooks/SocketContext";
 import RouterPage from "./pages/RouterPage";
 

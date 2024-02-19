@@ -28,7 +28,7 @@ const Login = () => {
     navigate("/desktop");
   };
 
-  const onFinishFailed = errorInfo => {};
+  const onFinishFailed = (errorInfo) => {};
 
   if (user.agent || user.desktop) {
     return <Navigate to="/desktop" />;

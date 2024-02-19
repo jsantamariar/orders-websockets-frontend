@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Card, Col, Divider, List, Row, Tag, Typography } from "antd";
 import { SocketContext } from "../hooks/SocketContext";
-import { getLastsTickets } from "../helpers/getLastTickets";
+import getLastsTickets from "../helpers/getLastTickets";
 
 const { Title, Text } = Typography;
 
@@ -10,7 +10,7 @@ const Line = () => {
   const [tickets, setTickets] = useState([]);
 
   useEffect(() => {
-    socket.on("ticket-assigned", assigned => {
+    socket.on("ticket-assigned", (assigned) => {
       setTickets(assigned);
     });
 
@@ -20,7 +20,7 @@ const Line = () => {
   }, [socket]);
 
   useEffect(() => {
-    getLastsTickets().then(res => setTickets(res));
+    getLastsTickets().then(setTickets);
   }, []);
 
   return (
@@ -39,7 +39,7 @@ const Line = () => {
             style={{ overflowY: "scroll" }}
             itemLayout="horizontal"
             dataSource={tickets.slice(0, 3)}
-            renderItem={ticket => (
+            renderItem={(ticket) => (
               <List.Item>
                 <List.Item.Meta
                   title={
@@ -87,7 +87,7 @@ const Line = () => {
             }}
             style={{ overflowY: "scroll", height: "60vh" }}
             dataSource={tickets}
-            renderItem={ticket => (
+            renderItem={(ticket) => (
               <List.Item>
                 <List.Item.Meta
                   title={

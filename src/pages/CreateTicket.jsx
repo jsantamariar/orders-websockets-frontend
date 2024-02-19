@@ -6,12 +6,12 @@ import { useSocket } from "../hooks/useSocket";
 const { Title, Text } = Typography;
 
 const CreateTicket = () => {
-  const { socket } = useSocket(process.env.URL);
+  const { socket } = useSocket("http://localhost:8080");
 
   const [ticket, setTicket] = useState(null);
 
   const createNewTicket = () => {
-    socket.emit("request-new-ticket", null, ticket => {
+    socket.emit("request-ticket", null, (ticket) => {
       setTicket(ticket);
     });
   };
