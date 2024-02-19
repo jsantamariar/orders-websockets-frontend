@@ -7,11 +7,9 @@ import { UiProvider } from "./context/UiContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
-  <UiProvider>
-    <BrowserRouter>
-      <TicketApp />
-    </BrowserRouter>
-  </UiProvider>
+  <BrowserRouter>
+    <TicketApp />
+  </BrowserRouter>
 
   // </React.StrictMode>,
 );

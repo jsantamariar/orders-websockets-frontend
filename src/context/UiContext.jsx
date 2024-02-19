@@ -3,22 +3,25 @@ import React, { createContext, useState } from "react";
 export const UiContext = createContext();
 
 export const UiProvider = ({ children }) => {
-  const [menuHidden, setMenuHidden] = useState(false);
+  const [hideMenu, setHideMenu] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
 
   const showMenu = () => {
-    setMenuHidden(false);
+    setHideMenu(false);
   };
 
-  const hideMenu = () => {
-    setMenuHidden(true);
+  const onHideMenu = () => {
+    setHideMenu(true);
   };
 
   return (
     <UiContext.Provider
       value={{
-        menuHidden,
         showMenu,
+        onHideMenu,
         hideMenu,
+        isLogged,
+        setIsLogged,
       }}
     >
       {children}

@@ -25,7 +25,7 @@ const Line = () => {
 
   return (
     <>
-      <Title level={1}>Line of orders</Title>
+      <Title level={1}>Orders</Title>
       <Row
         gutter={{
           xs: 8,
@@ -34,9 +34,9 @@ const Line = () => {
           lg: 32,
         }}
       >
-        <Col span={12}>
+        <Col span={12} style={{ overflowY: "scroll" }}>
           <List
-            style={{ overflowY: "scroll" }}
+            style={{ overflowY: "scroll", height: "40vh" }}
             itemLayout="horizontal"
             dataSource={tickets.slice(0, 3)}
             renderItem={(ticket) => (
@@ -85,7 +85,7 @@ const Line = () => {
               gutter: 16,
               column: 1,
             }}
-            style={{ overflowY: "scroll", height: "60vh" }}
+            style={{ overflowY: "scroll", height: "40vh" }}
             dataSource={tickets}
             renderItem={(ticket) => (
               <List.Item>

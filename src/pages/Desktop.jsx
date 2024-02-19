@@ -49,7 +49,7 @@ const Desktop = () => {
         <Col>
           <Text>You are working on order number: </Text>
           <Text style={{ fontSize: 14 }} type="danger">
-            {ticket?.number ? ticket.number : "There is no more orders"}
+            {ticket?.number ? ticket.number : "There are no more orders"}
           </Text>
         </Col>
       </Row>
